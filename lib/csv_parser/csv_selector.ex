@@ -1,6 +1,6 @@
-defmodule CsvParser.Reader do
+defmodule CsvParser.CsvSelector do
   @moduledoc """
-  Documentation for `FileReader`.
+  Documentation for `CsvSelector`.
   """
 
   @doc """
@@ -13,9 +13,9 @@ defmodule CsvParser.Reader do
 
   """
 
-  def read_csv_files() do
+  def read_csv_files(base_dir) do
     # Get the list of CSV files in the csv directory with the proper index
-    files = Path.wildcard("csv/*.csv") |> Enum.with_index(1)
+    files = Path.wildcard("#{base_dir}/*.csv") |> Enum.with_index(1)
     case files do
       [] ->
         IO.puts("\nno CSV files found in the csv directory.")
