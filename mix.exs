@@ -15,7 +15,7 @@ defmodule CsvParser.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {CsvParser, []}
+      mod: if(Mix.env() == :test, do: [], else: {CsvParser, []})
     ]
   end
 
